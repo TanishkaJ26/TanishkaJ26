@@ -4,14 +4,9 @@
 
 I measure how the internet routes. Sometimes I ship web apps too.
 
-```
-   .          .        INTERNET SECURITY        .
-        *  BGPShield                  .
-   .                 .          .           .
-        FULL STACK               .
-     +  Spotlight --------- +  WanderLust
-   .          .        .    dsa-cpp      .
-```
+<p align="center">
+  <img src="./assets/star-map.svg" width="100%" alt="Star chart. Internet Security, shaped like a shield, holds BGPShield as its brightest star. Full Stack holds Spotlight and WanderLust. dsa-cpp is a faint star between them." />
+</p>
 
 ## Constellation: Internet Security
 
