@@ -11,7 +11,6 @@ import json
 import os
 import re
 import sys
-import textwrap
 import urllib.request
 import zlib
 
@@ -53,21 +52,8 @@ def pick(repos):
     return keep[:MAX_CARDS]
 
 
-def clean(text):
-    # No em dashes on this profile.
-    return re.sub(r"\s*[—–]\s*", ", ", text or "").strip()
-
-
 def esc(text):
     return html.escape(text, quote=False)
-
-
-def describe(repo):
-    desc = clean(repo["description"]) or f"{repo['language'] or 'Code'} project. Description coming soon."
-    lines = textwrap.wrap(desc, 46)
-    if len(lines) > 3:
-        lines = lines[:2] + [textwrap.shorten(" ".join(lines[2:]), 45, placeholder="…")]
-    return lines
 
 
 def slug(name):
@@ -86,8 +72,7 @@ def build_cards(repos):
         fname = f"{slug(r['name'])}.svg"
         wanted.add(fname)
         chips = [c for c in [r["language"], *r.get("topics", [])] if c][:4]
-        project(f"auto/{fname}", esc(r["name"]), accent(r["name"]), [esc(l) for l in describe(r)],
-                [esc(c) for c in chips],
+        project(f"auto/{fname}", esc(r["name"]), accent(r["name"]), [esc(c) for c in chips],
                 f"github.com/{USER}/{r['name']}", offset=(i % 2) * 0.8, live=bool(r["homepage"]))
     for f in os.listdir(AUTO_DIR):
         if f.endswith(".svg") and f not in wanted:
@@ -99,7 +84,7 @@ def block(repos):
         return f"{START}\n{END}"
     cards = "\n".join(
         f'  <a href="{r["html_url"]}"><img src="./assets/auto/{slug(r["name"])}.svg" width="49%" '
-        f'alt="{html.escape(r["name"])}. {html.escape(" ".join(describe(r)))}" /></a>'
+        f'alt="{html.escape(r["name"])}" /></a>'
         for r in repos)
     live = [f'<a href="{html.escape(r["homepage"])}">{html.escape(r["name"])}</a>' for r in repos if r["homepage"]]
     live_line = f'\n\n<p align="center">\n  Live: {" · ".join(live)}\n</p>' if live else ""

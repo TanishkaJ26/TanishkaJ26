@@ -154,11 +154,11 @@ def header():
     <text x="450" y="200" text-anchor="middle" class="mono pop" font-size="9.5" letter-spacing="3" fill="{MUTED}" style="animation-delay:1s">NEW DELHI</text>
     <g class="mono" font-size="9" letter-spacing="2.5" fill="{MUTED}">
       <text x="24" y="28">TANISHKAJ26</text>
-      <text x="862" y="28" text-anchor="end">OPEN TO SUMMER INTERNSHIPS</text>
+      <text x="862" y="28" text-anchor="end">OPEN TO WORK</text>
     </g>
     {live_dot(874, 25, TEAL)}"""
     write("header.svg", svg(W, H, "Tanishka Jangir",
-                            "Tanishka Jangir. Routing research. Shipped products. Passive measurement. Every number re-derivable. New Delhi. Open to summer internships.",
+                            "Tanishka Jangir. Routing research. Shipped products. Passive measurement. Every number re-derivable. New Delhi. Open to work.",
                             css, body, comet=BLUE, comet_dur=12))
 
 
@@ -219,8 +219,8 @@ def bgpshield():
 
 
 # ---------------------------------------------------------------- project cards
-def project(fname, name, accent, lines, chips, repo, offset=0.0, live=True):
-    W, H = 440, 224
+def project(fname, name, accent, chips, repo, offset=0.0, live=True):
+    W, H = 440, 150
     cycle = 8
     css = f"""
     .chip {{ animation: chip {cycle}s ease-in-out infinite; }}
@@ -232,11 +232,10 @@ def project(fname, name, accent, lines, chips, repo, offset=0.0, live=True):
         if x + w > W - 28:
             break
         chip_svg += f"""<g class="pop" style="animation-delay:{0.6 + i * 0.1:.2f}s">
-      <rect x="{x}" y="156" width="{w:.1f}" height="22" rx="11" fill="none" stroke="{LINE}" stroke-width="1.2" class="chip" style="animation-delay:{1.5 + offset + i * 0.45:.2f}s"/>
-      <text x="{x + w / 2:.1f}" y="171" text-anchor="middle" class="mono" font-size="10" fill="{INK2}">{c}</text>
+      <rect x="{x}" y="80" width="{w:.1f}" height="22" rx="11" fill="none" stroke="{LINE}" stroke-width="1.2" class="chip" style="animation-delay:{1.5 + offset + i * 0.45:.2f}s"/>
+      <text x="{x + w / 2:.1f}" y="95" text-anchor="middle" class="mono" font-size="10" fill="{INK2}">{c}</text>
     </g>"""
         x += w + 8
-    desc = "".join(f'<text x="28" y="{92 + i * 21}">{l}</text>' for i, l in enumerate(lines))
     live_marker = ""
     if live:
         live_marker = f"""<text x="398" y="47" text-anchor="end" class="mono" font-size="9" letter-spacing="3" fill="{MUTED}">LIVE</text>
@@ -246,31 +245,29 @@ def project(fname, name, accent, lines, chips, repo, offset=0.0, live=True):
     {glint("g", 0, 0, W, 3, every=6, begin=1.4 + offset, size=110)}
     <text x="28" y="54" class="sans rise" font-size="24" font-weight="800" fill="{INK}" style="animation-delay:.15s">{name if len(name) <= 22 else name[:21] + "…"}</text>
     {live_marker}
-    <g class="sans rise" font-size="13.5" fill="{INK2}" style="animation-delay:.35s">{desc}</g>
     {chip_svg}
-    <text x="28" y="206" class="mono" font-size="9" letter-spacing="1" fill="{MUTED}">{repo}</text>
-    <text x="412" y="206" text-anchor="end" class="mono" font-size="9" letter-spacing="2" fill="{accent}">REPO ↗</text>"""
-    write(fname, svg(W, H, name, f"{name}. {' '.join(lines)} Built with {', '.join(chips)}.", css, body,
+    <text x="28" y="130" class="mono" font-size="9" letter-spacing="1" fill="{MUTED}">{repo}</text>
+    <text x="412" y="130" text-anchor="end" class="mono" font-size="9" letter-spacing="2" fill="{accent}">REPO ↗</text>"""
+    write(fname, svg(W, H, name, f"{name}. Built with {', '.join(chips)}.", css, body,
                      comet=accent, comet_dur=9 + offset * 2))
 
 
 # ---------------------------------------------------------------- footer
 def footer():
-    W, H = 900, 160
+    W, H = 900, 120
+    text_w = 200  # fixed via textLength so the dot sits right beside the words in any font
+    x0 = 450 - text_w / 2 + 12
     body = f"""
     <defs>
       <linearGradient id="rule" x1="0" x2="1"><stop offset="0" stop-color="{BLUE}" stop-opacity="0"/><stop offset=".5" stop-color="{BLUE}"/><stop offset="1" stop-color="{BLUE}" stop-opacity="0"/></linearGradient>
     </defs>
     <g class="rise" style="animation-delay:.1s">
-      <text x="436" y="46" text-anchor="middle" class="mono" font-size="10" letter-spacing="5" fill="{MUTED}">SUMMER INTERNSHIP</text>
-      <text x="450" y="86" text-anchor="middle" class="sans" font-size="26" font-weight="800" fill="{INK}">Open to work this summer.</text>
-      <text x="450" y="114" text-anchor="middle" class="sans" font-size="15" font-style="italic" fill="{INK2}">Hand me the problem nobody wants to measure.</text>
+      <text x="{x0}" y="66" class="sans" font-size="30" font-weight="800" fill="{INK}" textLength="{text_w}" lengthAdjust="spacingAndGlyphs">Open to work</text>
     </g>
-    {live_dot(532, 42, TEAL, 0.4)}
-    <rect x="330" y="134" width="240" height="1.5" fill="url(#rule)" class="grow" style="animation-delay:.6s"/>
-    {glint("g", 330, 133, 240, 3.5, every=5, begin=1.8, size=80)}"""
-    write("footer.svg", svg(W, H, "Summer internship",
-                            "Open to work this summer. Hand me the problem nobody wants to measure.", "", body,
+    {live_dot(x0 - 20, 56, TEAL, 0.4)}
+    <rect x="330" y="92" width="240" height="1.5" fill="url(#rule)" class="grow" style="animation-delay:.6s"/>
+    {glint("g", 330, 91, 240, 3.5, every=5, begin=1.8, size=80)}"""
+    write("footer.svg", svg(W, H, "Open to work", "Open to work.", "", body,
                             comet=TEAL, comet_dur=12))
 
 
@@ -281,15 +278,9 @@ if __name__ == "__main__":
     section("section-more.svg", "03", "More Work", "Newest first. Added automatically.", TEAL)
     bgpshield()
     project("spotlight.svg", "Spotlight", AMBER,
-            ["AI webinar SaaS. Hosts stream live from OBS,",
-             "with VAPI voice agents users configure",
-             "themselves. Recordings and Stripe subscriptions."],
             ["Next.js 15", "TypeScript", "Prisma", "Neon Postgres"],
             "github.com/TanishkaJ26/Spotlight")
     project("wanderlust.svg", "WanderLust", TEAL,
-            ["Airbnb-inspired rentals. List, edit and browse",
-             "properties with auth, Mapbox geocoding,",
-             "search, category filters, Cloudinary uploads."],
             ["Node.js", "Express", "MongoDB Atlas", "Passport.js"],
             "github.com/TanishkaJ26/wanderlust", offset=0.8)
     footer()

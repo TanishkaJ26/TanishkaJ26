@@ -1,10 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 160" width="900" height="160" role="img" aria-labelledby="t d">
-  <title id="t">Summer internship</title>
-  <desc id="d">Open to work this summer. Hand me the problem nobody wants to measure.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 120" width="900" height="120" role="img" aria-labelledby="t d">
+  <title id="t">Open to work</title>
+  <desc id="d">Open to work.</desc>
   <defs>
     <linearGradient id="surface" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#111626"/><stop offset="1" stop-color="#0b0e18"/></linearGradient>
     <linearGradient id="glint" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".9"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
-    <clipPath id="frame"><rect width="900" height="160" rx="14"/></clipPath>
+    <clipPath id="frame"><rect width="900" height="120" rx="14"/></clipPath>
   </defs>
   <style>
     .pop { animation: pop .9s ease-out both; }
@@ -20,30 +20,28 @@
 
     .comet { animation: comet 12s linear infinite; }
     .comet-tail { animation: comet-tail 12s linear infinite; }
-    @keyframes comet { from { stroke-dashoffset: 0; } to { stroke-dashoffset: -2096; } }
-    @keyframes comet-tail { from { stroke-dashoffset: 70; } to { stroke-dashoffset: -2026; } }
+    @keyframes comet { from { stroke-dashoffset: 0; } to { stroke-dashoffset: -2016; } }
+    @keyframes comet-tail { from { stroke-dashoffset: 70; } to { stroke-dashoffset: -1946; } }
     @media (prefers-reduced-motion: reduce) { * { animation: none !important; } .comet, .comet-tail { display: none; } }
   </style>
   <g clip-path="url(#frame)">
-    <rect width="900" height="160" fill="url(#surface)"/>
+    <rect width="900" height="120" fill="url(#surface)"/>
 
     <defs>
       <linearGradient id="rule" x1="0" x2="1"><stop offset="0" stop-color="#9cc2ff" stop-opacity="0"/><stop offset=".5" stop-color="#9cc2ff"/><stop offset="1" stop-color="#9cc2ff" stop-opacity="0"/></linearGradient>
     </defs>
     <g class="rise" style="animation-delay:.1s">
-      <text x="436" y="46" text-anchor="middle" class="mono" font-size="10" letter-spacing="5" fill="#6b7590">SUMMER INTERNSHIP</text>
-      <text x="450" y="86" text-anchor="middle" class="sans" font-size="26" font-weight="800" fill="#f1f5ff">Open to work this summer.</text>
-      <text x="450" y="114" text-anchor="middle" class="sans" font-size="15" font-style="italic" fill="#b8c2d9">Hand me the problem nobody wants to measure.</text>
+      <text x="362.0" y="66" class="sans" font-size="30" font-weight="800" fill="#f1f5ff" textLength="200" lengthAdjust="spacingAndGlyphs">Open to work</text>
     </g>
-    <circle cx="532" cy="42" r="3.2" fill="#8ff0d6" class="beacon" style="animation-delay:0.4s"/>
-    <circle cx="532" cy="42" r="3.2" fill="#8ff0d6"/>
-    <rect x="330" y="134" width="240" height="1.5" fill="url(#rule)" class="grow" style="animation-delay:.6s"/>
-    <clipPath id="g"><rect x="330" y="133" width="240" height="3.5" rx="1.75"/></clipPath>
-    <g clip-path="url(#g)"><rect x="250" y="133" width="80" height="3.5" fill="url(#glint)" opacity=".8">
+    <circle cx="342.0" cy="56" r="3.2" fill="#8ff0d6" class="beacon" style="animation-delay:0.4s"/>
+    <circle cx="342.0" cy="56" r="3.2" fill="#8ff0d6"/>
+    <rect x="330" y="92" width="240" height="1.5" fill="url(#rule)" class="grow" style="animation-delay:.6s"/>
+    <clipPath id="g"><rect x="330" y="91" width="240" height="3.5" rx="1.75"/></clipPath>
+    <g clip-path="url(#g)"><rect x="250" y="91" width="80" height="3.5" fill="url(#glint)" opacity=".8">
       <animateTransform attributeName="transform" type="translate" values="0 0;320 0;320 0" keyTimes="0;0.320;1" dur="5s" begin="1.8s" repeatCount="indefinite"/>
     </rect></g>
-    <rect x=".5" y=".5" width="899" height="159" rx="14" fill="none" stroke="#232b40"/>
-    <path d="M14.5 0.5H885.5A14 14 0 0 1 899.5 14.5V145.5A14 14 0 0 1 885.5 159.5H14.5A14 14 0 0 1 0.5 145.5V14.5A14 14 0 0 1 14.5 0.5Z" fill="none" stroke="#8ff0d6" stroke-width="3" stroke-opacity=".2" stroke-dasharray="110 1986" class="comet-tail"/>
-    <path d="M14.5 0.5H885.5A14 14 0 0 1 899.5 14.5V145.5A14 14 0 0 1 885.5 159.5H14.5A14 14 0 0 1 0.5 145.5V14.5A14 14 0 0 1 14.5 0.5Z" fill="none" stroke="#8ff0d6" stroke-width="1.5" stroke-dasharray="36 2060" stroke-linecap="round" class="comet"/>
+    <rect x=".5" y=".5" width="899" height="119" rx="14" fill="none" stroke="#232b40"/>
+    <path d="M14.5 0.5H885.5A14 14 0 0 1 899.5 14.5V105.5A14 14 0 0 1 885.5 119.5H14.5A14 14 0 0 1 0.5 105.5V14.5A14 14 0 0 1 14.5 0.5Z" fill="none" stroke="#8ff0d6" stroke-width="3" stroke-opacity=".2" stroke-dasharray="110 1906" class="comet-tail"/>
+    <path d="M14.5 0.5H885.5A14 14 0 0 1 899.5 14.5V105.5A14 14 0 0 1 885.5 119.5H14.5A14 14 0 0 1 0.5 105.5V14.5A14 14 0 0 1 14.5 0.5Z" fill="none" stroke="#8ff0d6" stroke-width="1.5" stroke-dasharray="36 1980" stroke-linecap="round" class="comet"/>
   </g>
 </svg>

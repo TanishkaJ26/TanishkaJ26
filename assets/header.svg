@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 230" width="900" height="230" role="img" aria-labelledby="t d">
   <title id="t">Tanishka Jangir</title>
-  <desc id="d">Tanishka Jangir. Routing research. Shipped products. Passive measurement. Every number re-derivable. New Delhi. Open to summer internships.</desc>
+  <desc id="d">Tanishka Jangir. Routing research. Shipped products. Passive measurement. Every number re-derivable. New Delhi. Open to work.</desc>
   <defs>
     <linearGradient id="surface" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#111626"/><stop offset="1" stop-color="#0b0e18"/></linearGradient>
     <linearGradient id="glint" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".9"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
@@ -56,7 +56,7 @@
     <text x="450" y="200" text-anchor="middle" class="mono pop" font-size="9.5" letter-spacing="3" fill="#6b7590" style="animation-delay:1s">NEW DELHI</text>
     <g class="mono" font-size="9" letter-spacing="2.5" fill="#6b7590">
       <text x="24" y="28">TANISHKAJ26</text>
-      <text x="862" y="28" text-anchor="end">OPEN TO SUMMER INTERNSHIPS</text>
+      <text x="862" y="28" text-anchor="end">OPEN TO WORK</text>
     </g>
     <circle cx="874" cy="25" r="3.2" fill="#8ff0d6" class="beacon" style="animation-delay:0.0s"/>
     <circle cx="874" cy="25" r="3.2" fill="#8ff0d6"/>
