@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 160" width="900" height="160" role="img" aria-labelledby="t d">
-  <title id="t">Available</title>
-  <desc id="d">Looking for a summer internship. Bring a hard problem.</desc>
+  <title id="t">Summer internship</title>
+  <desc id="d">Open to work this summer. Hand me the problem nobody wants to measure.</desc>
   <defs>
     <linearGradient id="surface" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#111626"/><stop offset="1" stop-color="#0b0e18"/></linearGradient>
     <linearGradient id="glint" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".9"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
@@ -31,12 +31,12 @@
       <linearGradient id="rule" x1="0" x2="1"><stop offset="0" stop-color="#9cc2ff" stop-opacity="0"/><stop offset=".5" stop-color="#9cc2ff"/><stop offset="1" stop-color="#9cc2ff" stop-opacity="0"/></linearGradient>
     </defs>
     <g class="rise" style="animation-delay:.1s">
-      <text x="442" y="46" text-anchor="middle" class="mono" font-size="10" letter-spacing="5" fill="#6b7590">AVAILABLE</text>
-      <text x="450" y="86" text-anchor="middle" class="sans" font-size="26" font-weight="800" fill="#f1f5ff">Looking for a summer internship.</text>
-      <text x="450" y="114" text-anchor="middle" class="sans" font-size="15" font-style="italic" fill="#b8c2d9">Bring a hard problem.</text>
+      <text x="436" y="46" text-anchor="middle" class="mono" font-size="10" letter-spacing="5" fill="#6b7590">SUMMER INTERNSHIP</text>
+      <text x="450" y="86" text-anchor="middle" class="sans" font-size="26" font-weight="800" fill="#f1f5ff">Open to work this summer.</text>
+      <text x="450" y="114" text-anchor="middle" class="sans" font-size="15" font-style="italic" fill="#b8c2d9">Hand me the problem nobody wants to measure.</text>
     </g>
-    <circle cx="502" cy="42" r="3.2" fill="#8ff0d6" class="beacon" style="animation-delay:0.4s"/>
-    <circle cx="502" cy="42" r="3.2" fill="#8ff0d6"/>
+    <circle cx="532" cy="42" r="3.2" fill="#8ff0d6" class="beacon" style="animation-delay:0.4s"/>
+    <circle cx="532" cy="42" r="3.2" fill="#8ff0d6"/>
     <rect x="330" y="134" width="240" height="1.5" fill="url(#rule)" class="grow" style="animation-delay:.6s"/>
     <clipPath id="g"><rect x="330" y="133" width="240" height="3.5" rx="1.75"/></clipPath>
     <g clip-path="url(#g)"><rect x="250" y="133" width="80" height="3.5" fill="url(#glint)" opacity=".8">

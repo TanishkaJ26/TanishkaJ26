@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 64" width="900" height="64" role="img" aria-labelledby="t d">
+  <title id="t">More Work</title>
+  <desc id="d">More Work. Newest first. Added automatically.</desc>
+  <defs>
+    <linearGradient id="surface" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#111626"/><stop offset="1" stop-color="#0b0e18"/></linearGradient>
+    <linearGradient id="glint" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".9"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+    <clipPath id="frame"><rect width="900" height="64" rx="14"/></clipPath>
+  </defs>
+  <style>
+    .pop { animation: pop .9s ease-out both; }
+    .rise { animation: rise 1s cubic-bezier(.2,.7,.2,1) both; }
+    .grow { transform-box: fill-box; transform-origin: left center; animation: grow 1.3s cubic-bezier(.2,.7,.2,1) both; }
+    .beacon { transform-box: fill-box; transform-origin: center; animation: beacon 2.4s ease-out infinite; }
+    .mono { font-family: ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace; }
+    .sans { font-family: -apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,sans-serif; }
+    @keyframes pop { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+    @keyframes grow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+    @keyframes beacon { 0% { transform: scale(1); opacity: .9; } 100% { transform: scale(3.2); opacity: 0; } }
+
+    @media (prefers-reduced-motion: reduce) { * { animation: none !important; } .comet, .comet-tail { display: none; } }
+  </style>
+  <g clip-path="url(#frame)">
+    <rect width="900" height="64" fill="url(#surface)"/>
+
+    <g class="rise" style="animation-delay:.1s">
+      <text x="26" y="40" class="mono" font-size="12" letter-spacing="2" fill="#8ff0d6">03</text>
+      <text x="62" y="41" class="sans" font-size="22" font-weight="700" fill="#f1f5ff">More Work</text>
+    </g>
+    <text x="874" y="39" text-anchor="end" class="sans pop" font-size="14" font-style="italic" fill="#b8c2d9" style="animation-delay:.6s">Newest first. Added automatically.</text>
+    <rect x="0" y="62" width="900" height="2" fill="#8ff0d6" opacity=".7" class="grow" style="animation-delay:.2s"/>
+    <clipPath id="g"><rect x="0" y="62" width="900" height="2" rx="1.0"/></clipPath>
+    <g clip-path="url(#g)"><rect x="-180" y="62" width="180" height="2" fill="url(#glint)" opacity=".8">
+      <animateTransform attributeName="transform" type="translate" values="0 0;1080 0;1080 0" keyTimes="0;0.320;1" dur="5s" begin="1.6s" repeatCount="indefinite"/>
+    </rect></g>
+    <rect x=".5" y=".5" width="899" height="63" rx="14" fill="none" stroke="#232b40"/>
+  </g>
+</svg>

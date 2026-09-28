@@ -31,8 +31,11 @@ Two adjacent publishers on a route is the first point where ASPA can judge anyth
   Also: <a href="https://github.com/TanishkaJ26/dsa-cpp">dsa-cpp</a>. Working through Striver A2Z in C++.
 </p>
 
+<!-- AUTO-PROJECTS:START -->
+<!-- AUTO-PROJECTS:END -->
+
 <p align="center">
-  <img src="./assets/footer.svg" width="100%" alt="Looking for a summer internship. Bring a hard problem." />
+  <img src="./assets/footer.svg" width="100%" alt="Open to work this summer. Hand me the problem nobody wants to measure." />
 </p>
 
 <p align="center">

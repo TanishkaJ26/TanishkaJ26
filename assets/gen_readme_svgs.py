@@ -89,7 +89,9 @@ def live_dot(x, y, color, delay=0.0):
 
 
 def write(name, content):
-    with open(os.path.join(OUT, name), "w", encoding="utf-8") as f:
+    path = os.path.join(OUT, name)
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    with open(path, "w", encoding="utf-8") as f:
         f.write(content)
 
 
@@ -217,7 +219,7 @@ def bgpshield():
 
 
 # ---------------------------------------------------------------- project cards
-def project(fname, name, accent, lines, chips, repo, offset=0.0):
+def project(fname, name, accent, lines, chips, repo, offset=0.0, live=True):
     W, H = 440, 224
     cycle = 8
     css = f"""
@@ -225,19 +227,25 @@ def project(fname, name, accent, lines, chips, repo, offset=0.0):
     @keyframes chip {{ 0%, 16%, 100% {{ stroke: {LINE}; }} 7% {{ stroke: {accent}; }} }}"""
     chip_svg, x = "", 28
     for i, c in enumerate(chips):
+        c = c if len(c) <= 18 else c[:17] + "…"
         w = len(c) * 6.4 + 20
+        if x + w > W - 28:
+            break
         chip_svg += f"""<g class="pop" style="animation-delay:{0.6 + i * 0.1:.2f}s">
       <rect x="{x}" y="156" width="{w:.1f}" height="22" rx="11" fill="none" stroke="{LINE}" stroke-width="1.2" class="chip" style="animation-delay:{1.5 + offset + i * 0.45:.2f}s"/>
       <text x="{x + w / 2:.1f}" y="171" text-anchor="middle" class="mono" font-size="10" fill="{INK2}">{c}</text>
     </g>"""
         x += w + 8
     desc = "".join(f'<text x="28" y="{92 + i * 21}">{l}</text>' for i, l in enumerate(lines))
+    live_marker = ""
+    if live:
+        live_marker = f"""<text x="398" y="47" text-anchor="end" class="mono" font-size="9" letter-spacing="3" fill="{MUTED}">LIVE</text>
+    {live_dot(410, 44, accent, 0.6 + offset)}"""
     body = f"""
     <rect x="0" y="0" width="{W}" height="3" fill="{accent}" class="grow"/>
     {glint("g", 0, 0, W, 3, every=6, begin=1.4 + offset, size=110)}
-    <text x="28" y="54" class="sans rise" font-size="24" font-weight="800" fill="{INK}" style="animation-delay:.15s">{name}</text>
-    <text x="398" y="47" text-anchor="end" class="mono" font-size="9" letter-spacing="3" fill="{MUTED}">LIVE</text>
-    {live_dot(410, 44, accent, 0.6 + offset)}
+    <text x="28" y="54" class="sans rise" font-size="24" font-weight="800" fill="{INK}" style="animation-delay:.15s">{name if len(name) <= 22 else name[:21] + "…"}</text>
+    {live_marker}
     <g class="sans rise" font-size="13.5" fill="{INK2}" style="animation-delay:.35s">{desc}</g>
     {chip_svg}
     <text x="28" y="206" class="mono" font-size="9" letter-spacing="1" fill="{MUTED}">{repo}</text>
@@ -254,15 +262,15 @@ def footer():
       <linearGradient id="rule" x1="0" x2="1"><stop offset="0" stop-color="{BLUE}" stop-opacity="0"/><stop offset=".5" stop-color="{BLUE}"/><stop offset="1" stop-color="{BLUE}" stop-opacity="0"/></linearGradient>
     </defs>
     <g class="rise" style="animation-delay:.1s">
-      <text x="442" y="46" text-anchor="middle" class="mono" font-size="10" letter-spacing="5" fill="{MUTED}">AVAILABLE</text>
-      <text x="450" y="86" text-anchor="middle" class="sans" font-size="26" font-weight="800" fill="{INK}">Looking for a summer internship.</text>
-      <text x="450" y="114" text-anchor="middle" class="sans" font-size="15" font-style="italic" fill="{INK2}">Bring a hard problem.</text>
+      <text x="436" y="46" text-anchor="middle" class="mono" font-size="10" letter-spacing="5" fill="{MUTED}">SUMMER INTERNSHIP</text>
+      <text x="450" y="86" text-anchor="middle" class="sans" font-size="26" font-weight="800" fill="{INK}">Open to work this summer.</text>
+      <text x="450" y="114" text-anchor="middle" class="sans" font-size="15" font-style="italic" fill="{INK2}">Hand me the problem nobody wants to measure.</text>
     </g>
-    {live_dot(502, 42, TEAL, 0.4)}
+    {live_dot(532, 42, TEAL, 0.4)}
     <rect x="330" y="134" width="240" height="1.5" fill="url(#rule)" class="grow" style="animation-delay:.6s"/>
     {glint("g", 330, 133, 240, 3.5, every=5, begin=1.8, size=80)}"""
-    write("footer.svg", svg(W, H, "Available",
-                            "Looking for a summer internship. Bring a hard problem.", "", body,
+    write("footer.svg", svg(W, H, "Summer internship",
+                            "Open to work this summer. Hand me the problem nobody wants to measure.", "", body,
                             comet=TEAL, comet_dur=12))
 
 
@@ -270,6 +278,7 @@ if __name__ == "__main__":
     header()
     section("section-security.svg", "01", "Internet Security", "The main event.", BLUE)
     section("section-fullstack.svg", "02", "Full Stack", "Shipped and live.", AMBER)
+    section("section-more.svg", "03", "More Work", "Newest first. Added automatically.", TEAL)
     bgpshield()
     project("spotlight.svg", "Spotlight", AMBER,
             ["AI webinar SaaS. Hosts stream live from OBS,",
