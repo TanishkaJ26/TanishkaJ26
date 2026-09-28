@@ -1,91 +1,56 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 280" width="900" height="280" role="img" aria-labelledby="t d">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 260" width="900" height="260" role="img" aria-labelledby="t d">
   <title id="t">BGPShield</title>
   <desc id="d">BGPShield. 2.87% of routed networks publish an ASPA record. 5.41% of routes contain two adjacent publishers. Python 3.12, 386 tests passing, CI, dashboard rebuilt daily.</desc>
   <defs>
-    <radialGradient id="sky" cx="38%" cy="40%" r="85%">
-      <stop offset="0" stop-color="#141c33"/><stop offset=".55" stop-color="#0a0f1e"/><stop offset="1" stop-color="#04060c"/>
-    </radialGradient>
-    <radialGradient id="neb-blue"><stop offset="0" stop-color="#3b5bdb" stop-opacity=".24"/><stop offset="1" stop-color="#3b5bdb" stop-opacity="0"/></radialGradient>
-    <radialGradient id="neb-rose"><stop offset="0" stop-color="#b8487a" stop-opacity=".18"/><stop offset="1" stop-color="#b8487a" stop-opacity="0"/></radialGradient>
-    <radialGradient id="neb-amber"><stop offset="0" stop-color="#c9822f" stop-opacity=".2"/><stop offset="1" stop-color="#c9822f" stop-opacity="0"/></radialGradient>
-    <radialGradient id="neb-teal"><stop offset="0" stop-color="#1f9c84" stop-opacity=".2"/><stop offset="1" stop-color="#1f9c84" stop-opacity="0"/></radialGradient>
-    <radialGradient id="glow-blue"><stop offset="0" stop-color="#bcd6ff" stop-opacity=".55"/><stop offset=".35" stop-color="#6f9eff" stop-opacity=".18"/><stop offset="1" stop-color="#6f9eff" stop-opacity="0"/></radialGradient>
-    <radialGradient id="glow-amber"><stop offset="0" stop-color="#ffe2b0" stop-opacity=".55"/><stop offset=".4" stop-color="#ffb04a" stop-opacity=".14"/><stop offset="1" stop-color="#ffb04a" stop-opacity="0"/></radialGradient>
-    <radialGradient id="glow-teal"><stop offset="0" stop-color="#c4fff0" stop-opacity=".55"/><stop offset=".4" stop-color="#3fd9b0" stop-opacity=".14"/><stop offset="1" stop-color="#3fd9b0" stop-opacity="0"/></radialGradient>
-    <filter id="haze" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="24"/></filter>
-    <clipPath id="frame"><rect width="900" height="280" rx="16"/></clipPath>
+    <linearGradient id="surface" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#111626"/><stop offset="1" stop-color="#0b0e18"/></linearGradient>
+    <clipPath id="frame"><rect width="900" height="260" rx="14"/></clipPath>
   </defs>
   <style>
     .pop { animation: pop .9s ease-out both; }
     .rise { animation: rise 1s cubic-bezier(.2,.7,.2,1) both; }
-    .cl { fill: none; stroke: #8fa9dc; stroke-width: 1; stroke-opacity: .55; stroke-dasharray: 1; animation: draw 1.1s ease-out both; }
-    .tw { animation: twinkle 4s ease-in-out infinite; }
-    .tw2 { animation-duration: 5.5s; }
-    .tw3 { animation-duration: 7s; }
-    .pulse { transform-box: fill-box; transform-origin: center; animation: pulse 5s ease-in-out infinite; }
-    .spin { transform-box: fill-box; transform-origin: center; animation: spin 30s linear infinite; }
+    .grow { transform-box: fill-box; transform-origin: left center; animation: grow 1.3s cubic-bezier(.2,.7,.2,1) both; }
     .beacon { transform-box: fill-box; transform-origin: center; animation: beacon 2.4s ease-out infinite; }
     .mono { font-family: ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace; }
     .sans { font-family: -apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,sans-serif; }
     @keyframes pop { from { opacity: 0; } to { opacity: 1; } }
     @keyframes rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
-    @keyframes draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
-    @keyframes twinkle { 0%, 100% { opacity: .9; } 50% { opacity: .15; } }
-    @keyframes pulse { 0%, 100% { transform: scale(.88); opacity: .8; } 50% { transform: scale(1.12); opacity: 1; } }
-    @keyframes spin { to { transform: rotate(360deg); } }
+    @keyframes grow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
     @keyframes beacon { 0% { transform: scale(1); opacity: .9; } 100% { transform: scale(3.2); opacity: 0; } }
 
-    .grow { transform-box: fill-box; transform-origin: left center; animation: grow 1.4s cubic-bezier(.2,.7,.2,1) both; }
-    .sweep { opacity: 0; animation: sweep 9s linear 1s infinite both; }
-    @keyframes grow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
-    @keyframes sweep { from { transform: translateX(-120px); opacity: 1; } to { transform: translateX(1020px); opacity: 1; } }
     @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
   </style>
   <g clip-path="url(#frame)">
-    <rect width="900" height="280" fill="url(#sky)"/>
+    <rect width="900" height="260" fill="url(#surface)"/>
 
-    <defs>
-      <linearGradient id="sweepGrad" x1="0" x2="1"><stop offset="0" stop-color="#9cc2ff" stop-opacity="0"/><stop offset=".92" stop-color="#9cc2ff" stop-opacity=".10"/><stop offset="1" stop-color="#9cc2ff" stop-opacity=".45"/></linearGradient>
-    </defs>
-    <circle cx="120" cy="60" r="260" fill="url(#neb-blue)"/>
-    <g><circle cx="621.8" cy="17.2" r="0.7" fill="#ffffff" opacity="0.78"/><circle cx="744.6" cy="22.9" r="0.4" fill="#ffffff" opacity="0.31"/><circle cx="697.0" cy="93.4" r="0.8" fill="#dcd4ff" opacity="0.71" class="tw tw2" style="animation-delay:3.0s"/><circle cx="253.0" cy="273.4" r="1.2" fill="#ffffff" opacity="0.25"/><circle cx="758.4" cy="6.1" r="0.5" fill="#ffffff" opacity="0.76"/><circle cx="876.6" cy="112.5" r="0.4" fill="#ffffff" opacity="0.54"/><circle cx="577.6" cy="37.2" r="0.7" fill="#ffffff" opacity="0.79" class="tw tw3" style="animation-delay:1.8s"/><circle cx="791.8" cy="62.5" r="0.7" fill="#ffffff" opacity="0.8" class="tw tw1" style="animation-delay:1.3s"/><circle cx="539.9" cy="105.6" r="0.7" fill="#ffe9c9" opacity="0.28"/><circle cx="126.5" cy="109.5" r="1.0" fill="#ffffff" opacity="0.29"/><circle cx="20.7" cy="78.1" r="0.7" fill="#ffffff" opacity="0.35" class="tw tw2" style="animation-delay:3.2s"/><circle cx="870.1" cy="30.7" r="0.5" fill="#ffffff" opacity="0.73"/><circle cx="130.6" cy="15.4" r="0.4" fill="#ffffff" opacity="0.48"/><circle cx="860.9" cy="11.7" r="1.0" fill="#ffffff" opacity="0.24"/><circle cx="289.2" cy="273.8" r="0.4" fill="#ffffff" opacity="0.47"/><circle cx="818.5" cy="100.3" r="1.0" fill="#ffffff" opacity="0.48"/><circle cx="561.0" cy="108.5" r="0.8" fill="#ffffff" opacity="0.21" class="tw tw3" style="animation-delay:0.7s"/><circle cx="234.4" cy="117.6" r="0.6" fill="#ffe9c9" opacity="0.43"/><circle cx="750.5" cy="28.5" r="1.2" fill="#ffffff" opacity="0.51"/><circle cx="233.2" cy="9.0" r="0.6" fill="#ffffff" opacity="0.29"/><circle cx="675.3" cy="97.8" r="0.7" fill="#ffffff" opacity="0.5"/><circle cx="597.3" cy="59.2" r="0.7" fill="#ffffff" opacity="0.68"/><circle cx="849.6" cy="80.2" r="0.5" fill="#ffe9c9" opacity="0.27" class="tw tw1" style="animation-delay:5.0s"/><circle cx="608.3" cy="81.3" r="0.6" fill="#ffffff" opacity="0.39"/><circle cx="689.1" cy="77.4" r="1.2" fill="#ffffff" opacity="0.28"/><circle cx="891.2" cy="48.7" r="1.2" fill="#ffffff" opacity="0.68" class="tw tw3" style="animation-delay:2.3s"/><circle cx="793.9" cy="7.8" r="0.8" fill="#dcd4ff" opacity="0.54"/><circle cx="584.4" cy="60.9" r="1.0" fill="#ffffff" opacity="0.72" class="tw tw2" style="animation-delay:5.9s"/><circle cx="708.2" cy="91.9" r="1.0" fill="#ffffff" opacity="0.71"/><circle cx="39.0" cy="97.7" r="0.7" fill="#ffe9c9" opacity="0.66"/><circle cx="199.8" cy="238.5" r="0.7" fill="#ffffff" opacity="0.68"/><circle cx="423.9" cy="274.0" r="1.0" fill="#ffe9c9" opacity="0.51"/><circle cx="464.2" cy="113.4" r="1.2" fill="#ffffff" opacity="0.79"/><circle cx="619.6" cy="23.7" r="0.8" fill="#cfe0ff" opacity="0.48" class="tw tw2" style="animation-delay:3.0s"/><circle cx="378.6" cy="13.9" r="0.6" fill="#ffffff" opacity="0.28" class="tw tw1" style="animation-delay:1.4s"/><circle cx="616.1" cy="92.3" r="0.6" fill="#ffe9c9" opacity="0.35" class="tw tw3" style="animation-delay:3.5s"/><circle cx="786.3" cy="12.2" r="1.0" fill="#dcd4ff" opacity="0.45"/><circle cx="483.9" cy="237.5" r="0.8" fill="#dcd4ff" opacity="0.58" class="tw tw3" style="animation-delay:3.7s"/><circle cx="766.8" cy="68.4" r="1.0" fill="#ffffff" opacity="0.58"/><circle cx="825.4" cy="64.5" r="0.5" fill="#ffffff" opacity="0.73"/><circle cx="569.6" cy="98.1" r="1.0" fill="#ffffff" opacity="0.7"/><circle cx="27.6" cy="210.2" r="0.8" fill="#ffe9c9" opacity="0.51" class="tw tw1" style="animation-delay:0.7s"/><circle cx="610.7" cy="26.8" r="0.4" fill="#ffe9c9" opacity="0.4"/><circle cx="368.3" cy="102.4" r="0.6" fill="#ffffff" opacity="0.44"/><circle cx="753.6" cy="240.7" r="1.0" fill="#ffffff" opacity="0.76"/><circle cx="729.4" cy="114.7" r="0.6" fill="#ffffff" opacity="0.73"/><circle cx="685.5" cy="114.7" r="1.0" fill="#ffffff" opacity="0.31"/><circle cx="95.6" cy="244.0" r="1.0" fill="#ffffff" opacity="0.74" class="tw tw3" style="animation-delay:1.8s"/><circle cx="197.9" cy="114.8" r="0.5" fill="#cfe0ff" opacity="0.52"/><circle cx="112.2" cy="112.0" r="0.8" fill="#ffffff" opacity="0.21"/><circle cx="233.9" cy="113.6" r="0.4" fill="#cfe0ff" opacity="0.66" class="tw tw2" style="animation-delay:1.5s"/><circle cx="510.4" cy="272.7" r="1.0" fill="#ffffff" opacity="0.47"/><circle cx="29.9" cy="213.0" r="0.8" fill="#ffffff" opacity="0.23"/><circle cx="613.7" cy="20.1" r="0.6" fill="#ffffff" opacity="0.65"/><circle cx="648.1" cy="91.6" r="1.2" fill="#cfe0ff" opacity="0.74"/><circle cx="50.8" cy="117.8" r="0.4" fill="#ffffff" opacity="0.32"/><circle cx="143.4" cy="103.4" r="0.5" fill="#ffe9c9" opacity="0.6"/><circle cx="757.7" cy="79.6" r="0.8" fill="#ffffff" opacity="0.61"/><circle cx="227.1" cy="268.6" r="0.5" fill="#ffffff" opacity="0.73"/><circle cx="14.4" cy="75.6" r="0.4" fill="#ffffff" opacity="0.57" class="tw tw2" style="animation-delay:0.4s"/><circle cx="193.0" cy="98.1" r="1.0" fill="#ffffff" opacity="0.28"/><circle cx="737.3" cy="8.5" r="0.6" fill="#ffffff" opacity="0.33"/><circle cx="297.2" cy="242.3" r="0.5" fill="#ffffff" opacity="0.41"/><circle cx="800.5" cy="72.5" r="0.6" fill="#ffffff" opacity="0.7"/><circle cx="357.3" cy="109.9" r="0.5" fill="#ffffff" opacity="0.64"/><circle cx="679.9" cy="242.1" r="0.6" fill="#ffffff" opacity="0.69"/><circle cx="720.2" cy="23.2" r="0.8" fill="#dcd4ff" opacity="0.38" class="tw tw1" style="animation-delay:1.6s"/><circle cx="29.1" cy="181.1" r="0.4" fill="#cfe0ff" opacity="0.65" class="tw tw1" style="animation-delay:2.9s"/><circle cx="812.1" cy="96.6" r="0.7" fill="#ffffff" opacity="0.44"/><circle cx="881.3" cy="99.6" r="0.4" fill="#ffffff" opacity="0.68"/><circle cx="718.4" cy="119.0" r="0.7" fill="#ffffff" opacity="0.75"/><circle cx="886.0" cy="106.6" r="0.5" fill="#cfe0ff" opacity="0.39"/><circle cx="237.3" cy="243.8" r="0.6" fill="#ffffff" opacity="0.6"/><circle cx="202.3" cy="19.3" r="0.5" fill="#cfe0ff" opacity="0.68"/><circle cx="705.5" cy="21.5" r="0.5" fill="#ffe9c9" opacity="0.74"/><circle cx="380.2" cy="240.5" r="0.7" fill="#ffffff" opacity="0.29" class="tw tw3" style="animation-delay:0.8s"/><circle cx="622.0" cy="28.2" r="1.0" fill="#dcd4ff" opacity="0.55"/><circle cx="706.9" cy="117.7" r="1.0" fill="#ffe9c9" opacity="0.25" class="tw tw3" style="animation-delay:2.5s"/><circle cx="862.0" cy="90.7" r="0.7" fill="#ffffff" opacity="0.25"/><circle cx="598.4" cy="24.0" r="0.4" fill="#ffffff" opacity="0.61"/><circle cx="401.4" cy="237.5" r="1.0" fill="#ffffff" opacity="0.63" class="tw tw1" style="animation-delay:2.7s"/><circle cx="15.3" cy="271.8" r="1.2" fill="#ffffff" opacity="0.63" class="tw tw2" style="animation-delay:5.6s"/><circle cx="402.8" cy="108.5" r="0.4" fill="#ffffff" opacity="0.28" class="tw tw3" style="animation-delay:4.2s"/><circle cx="165.7" cy="113.8" r="1.2" fill="#ffffff" opacity="0.48" class="tw tw1" style="animation-delay:0.9s"/><circle cx="116.2" cy="115.0" r="0.4" fill="#cfe0ff" opacity="0.4"/><circle cx="706.4" cy="71.7" r="0.8" fill="#ffffff" opacity="0.52"/><circle cx="100.4" cy="107.2" r="0.8" fill="#ffffff" opacity="0.4"/><circle cx="492.8" cy="100.5" r="0.8" fill="#ffffff" opacity="0.51"/><circle cx="625.0" cy="94.2" r="1.2" fill="#ffe9c9" opacity="0.42"/><circle cx="835.4" cy="7.0" r="1.0" fill="#ffffff" opacity="0.74"/></g>
-    <rect class="sweep" x="0" y="0" width="120" height="280" fill="url(#sweepGrad)"/>
-
-    <g class="pop">
-      <circle cx="46" cy="54" r="30" fill="url(#glow-blue)" class="pulse"/>
-      <path d="M22 54H70M46 30V78" stroke="#dbe7ff" stroke-width="1" opacity=".6"/>
-      <circle cx="46" cy="54" r="6" fill="#9cc2ff" opacity=".4"/><circle cx="46" cy="54" r="3.2" fill="#fff"/>
-      <circle cx="46" cy="54" r="15" fill="none" stroke="#9cc2ff" stroke-width=".8" stroke-dasharray="2 4" opacity=".7" class="spin"/>
+    <g class="rise" style="animation-delay:.1s">
+      <text x="40" y="52" class="sans" font-size="26" font-weight="800" fill="#f1f5ff">BGPShield</text>
+      <text x="40" y="74" class="mono" font-size="9.5" letter-spacing="2.5" fill="#6b7590">RPKI ROV + ASPA ADOPTION · PASSIVE-ONLY MEASUREMENT</text>
     </g>
-    <g class="rise" style="animation-delay:.15s">
-      <text x="80" y="60" class="sans" font-size="28" font-weight="800" fill="#f1f5ff">BGPShield</text>
-      <text x="80" y="82" class="mono" font-size="9.5" letter-spacing="2.5" fill="#7f95c8">RPKI ROV + ASPA ADOPTION · PASSIVE-ONLY MEASUREMENT</text>
-    </g>
-    <text x="852" y="52" text-anchor="end" class="mono" font-size="9" letter-spacing="2.5" fill="#6f7fa6">DASHBOARD REBUILT DAILY</text>
-    <circle cx="866" cy="49" r="3.2" fill="#9cc2ff" class="beacon" style="animation-delay:0.0s"/>
-    <circle cx="866" cy="49" r="3.2" fill="#9cc2ff"/>
-    <path d="M40 106H860" stroke="#9fb3e0" stroke-opacity=".14"/>
-    <path d="M450 124V228" stroke="#9fb3e0" stroke-opacity=".12"/>
+    <text x="852" y="47" text-anchor="end" class="mono" font-size="9" letter-spacing="2.5" fill="#6b7590">DASHBOARD REBUILT DAILY</text>
+    <circle cx="866" cy="44" r="3.2" fill="#9cc2ff" class="beacon" style="animation-delay:0.0s"/>
+    <circle cx="866" cy="44" r="3.2" fill="#9cc2ff"/>
+    <path d="M40 92H860" stroke="#232b40"/>
+    <path d="M450 110V210" stroke="#232b40"/>
     
-    <g class="rise" style="animation-delay:0.50s">
-      <text x="40" y="164" class="sans" font-size="48" font-weight="800" fill="#f1f5ff">2.87%</text>
-      <text x="40" y="190" class="sans" font-size="14" fill="#c3cde6">of routed networks publish an ASPA record</text>
+    <g class="rise" style="animation-delay:0.40s">
+      <text x="40" y="146" class="sans" font-size="48" font-weight="800" fill="#f1f5ff">2.87%</text>
+      <text x="40" y="172" class="sans" font-size="14" fill="#b8c2d9">of routed networks publish an ASPA record</text>
     </g>
-    <rect x="40" y="204" width="380" height="8" rx="4" fill="#1c2644"/>
-    <rect x="40" y="204" width="10.9" height="8" rx="4" fill="#9cc2ff" class="grow" style="animation-delay:0.90s"/>
-    <g class="mono" font-size="9" fill="#6f7fa6"><text x="40" y="228">0</text><text x="420" y="228" text-anchor="end">100%</text></g>
-    <g class="rise" style="animation-delay:0.85s">
-      <text x="480" y="164" class="sans" font-size="48" font-weight="800" fill="#f1f5ff">5.41%</text>
-      <text x="480" y="190" class="sans" font-size="14" fill="#c3cde6">of routes contain two adjacent publishers</text>
+    <rect x="40" y="186" width="380" height="8" rx="4" fill="#1a2135"/>
+    <rect x="40" y="186" width="10.9" height="8" rx="4" fill="#9cc2ff" class="grow" style="animation-delay:0.80s"/>
+    <g class="mono" font-size="9" fill="#6b7590"><text x="40" y="210">0</text><text x="420" y="210" text-anchor="end">100%</text></g>
+    <g class="rise" style="animation-delay:0.70s">
+      <text x="480" y="146" class="sans" font-size="48" font-weight="800" fill="#f1f5ff">5.41%</text>
+      <text x="480" y="172" class="sans" font-size="14" fill="#b8c2d9">of routes contain two adjacent publishers</text>
     </g>
-    <rect x="480" y="204" width="380" height="8" rx="4" fill="#1c2644"/>
-    <rect x="480" y="204" width="20.6" height="8" rx="4" fill="#9cc2ff" class="grow" style="animation-delay:1.25s"/>
-    <g class="mono" font-size="9" fill="#6f7fa6"><text x="480" y="228">0</text><text x="860" y="228" text-anchor="end">100%</text></g>
-    <path d="M40 242H860" stroke="#9fb3e0" stroke-opacity=".14"/>
-    <g class="mono" font-size="9" letter-spacing="1.8" fill="#6f7fa6">
-      <text x="40" y="262">PYTHON 3.12 · 386 TESTS PASSING · CI · EVERY NUMBER RE-DERIVES WITH ONE COMMAND</text>
-      <text x="860" y="262" text-anchor="end" fill="#9cc2ff">LIVE DASHBOARD ↗</text>
+    <rect x="480" y="186" width="380" height="8" rx="4" fill="#1a2135"/>
+    <rect x="480" y="186" width="20.6" height="8" rx="4" fill="#9cc2ff" class="grow" style="animation-delay:1.10s"/>
+    <g class="mono" font-size="9" fill="#6b7590"><text x="480" y="210">0</text><text x="860" y="210" text-anchor="end">100%</text></g>
+    <path d="M40 224H860" stroke="#232b40"/>
+    <g class="mono" font-size="9" letter-spacing="1.8" fill="#6b7590">
+      <text x="40" y="244">PYTHON 3.12 · 386 TESTS PASSING · CI · EVERY NUMBER RE-DERIVES WITH ONE COMMAND</text>
+      <text x="860" y="244" text-anchor="end" fill="#9cc2ff">LIVE DASHBOARD ↗</text>
     </g>
-    <rect x=".5" y=".5" width="899" height="279" rx="16" fill="none" stroke="#2a3558" stroke-opacity=".8"/>
+    <rect x=".5" y=".5" width="899" height="259" rx="14" fill="none" stroke="#232b40"/>
   </g>
 </svg>
