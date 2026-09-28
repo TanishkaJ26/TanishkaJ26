@@ -32,11 +32,11 @@ Two adjacent publishers on a route is the first point where ASPA can judge anyth
 </p>
 
 <p align="center">
-  <img src="./assets/footer.svg" width="100%" alt="Ground control. Looking for a summer internship. Bring a hard problem." />
+  <img src="./assets/footer.svg" width="100%" alt="Looking for a summer internship. Bring a hard problem." />
 </p>
 
 <p align="center">
   <a href="https://www.linkedin.com/in/tanishka-jangir/">LinkedIn</a> · <a href="https://tanishkajangir.vercel.app/">Portfolio</a>
   <br /><br />
-  <img src="https://komarev.com/ghpvc/?username=TanishkaJ26&label=Stargazers&color=8b949e&style=flat" alt="Stargazers" />
+  <img src="https://komarev.com/ghpvc/?username=TanishkaJ26&label=Profile+views&color=8b949e&style=flat" alt="Profile views" />
 </p>

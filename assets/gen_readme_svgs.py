@@ -127,30 +127,16 @@ def header():
     .shine {{ animation: shine 7s ease-in-out 1.6s infinite both; }}
     .type {{ transform-origin: {x0:.1f}px 0; animation: type 2.4s steps({n}) 1.1s both; }}
     .blink {{ animation: blink 1s steps(1) 3.5s infinite; }}
-    .orbit {{ offset-path: path('M 60 132 A 390 70 0 1 1 840 132 A 390 70 0 1 1 60 132'); offset-rotate: 0deg; animation: orbit 26s linear infinite; }}
-    .meteor {{ opacity: 0; animation: meteor 12s ease-in 4s infinite both; }}
     @keyframes shine {{ 0% {{ transform: translateX(0); }} 45%, 100% {{ transform: translateX(1100px); }} }}
     @keyframes type {{ from {{ transform: scaleX(0); }} to {{ transform: scaleX(1); }} }}
     @keyframes blink {{ 0% {{ opacity: 1; }} 50% {{ opacity: 0; }} }}
-    @keyframes orbit {{ from {{ offset-distance: 0%; }} to {{ offset-distance: 100%; }} }}
-    @keyframes meteor {{
-      0% {{ transform: translate(0, 0); opacity: 0; }} 1.5% {{ opacity: 1; }}
-      8% {{ transform: translate(220px, 90px); opacity: 0; }} 100% {{ transform: translate(220px, 90px); opacity: 0; }}
-    }}"""
-    keep = [(12, 12, 200, 34), (560, 12, 890, 34), (180, 70, 720, 190), (250, 196, 650, 222)]
+"""
     name_attrs = f'x="450" y="118" text-anchor="middle" font-family="{SANS}" font-size="58" font-weight="800" letter-spacing="1.5"'
     body = f"""
-    <ellipse cx="450" cy="125" rx="500" ry="60" fill="#8a9cff" opacity=".07" filter="url(#haze)" transform="rotate(-6 450 125)"/>
     <circle cx="200" cy="120" r="230" fill="url(#neb-blue)"/>
     <circle cx="720" cy="140" r="240" fill="url(#neb-rose)"/>
-    <g>{starfield(W, H, 150, 7, keep)}</g>
-    <g class="meteor"><path d="M620 8L700 40" stroke="url(#tail)" stroke-width="1.4" stroke-linecap="round"/><circle cx="700" cy="40" r="1.6" fill="#fff"/></g>
-
-    <path d="M 60 132 A 390 70 0 1 1 840 132 A 390 70 0 1 1 60 132" fill="none" stroke="{BLUE}" stroke-opacity=".16" stroke-dasharray="2 6" transform="rotate(-4 450 132)"/>
-    <g transform="rotate(-4 450 132)"><circle r="3" fill="#fff" class="orbit"/></g>
 
     <defs>
-      <linearGradient id="tail" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#fff"/></linearGradient>
       <linearGradient id="nameFill" x1="0" x2="0" y1="60" y2="124" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#b9cff5"/></linearGradient>
       <linearGradient id="shineGrad" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".85"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
       <clipPath id="nameClip"><text {name_attrs}>Tanishka Jangir</text></clipPath>
@@ -170,7 +156,7 @@ def header():
     </rect></g>
 
     <g class="mono pop" font-size="9.5" letter-spacing="3" fill="{MUTED}" style="animation-delay:3.4s">
-      <text x="450" y="212" text-anchor="middle">NEW DELHI · 28.61°N 77.21°E</text>
+      <text x="450" y="212" text-anchor="middle">NEW DELHI</text>
     </g>
     <g class="mono" font-size="9" letter-spacing="2.5" fill="{MUTED}">
       <text x="24" y="28">TANISHKAJ26</text>
@@ -292,32 +278,25 @@ def project(fname, name, color, accent, nebula, lines, chips, repo):
 
 # ---------------------------------------------------------------- footer
 def footer():
-    W, H = 900, 210
+    W, H = 900, 170
     css = """
-    .ring { opacity: 0; transform-box: fill-box; transform-origin: center; animation: ring 4.5s ease-out infinite both; }
-    @keyframes ring { 0% { transform: scale(.2); opacity: .8; } 100% { transform: scale(1); opacity: 0; } }"""
-    rings = "".join(
-        f'<circle cx="450" cy="172" r="240" fill="none" stroke="{BLUE}" stroke-width="1.2" class="ring" style="animation-delay:{i * 1.5}s"/>'
-        for i in range(3))
+    .underline { transform-box: fill-box; transform-origin: center; animation: grow 1.2s cubic-bezier(.2,.7,.2,1) .6s both; }
+    @keyframes grow { from { transform: scaleX(0); } to { transform: scaleX(1); } }"""
     body = f"""
     <defs>
-      <radialGradient id="planet" cx="50%" cy="0%" r="60%"><stop offset="0" stop-color="#1b2a52"/><stop offset="1" stop-color="#060912"/></radialGradient>
-      <clipPath id="above"><rect width="{W}" height="172"/></clipPath>
-      <filter id="soft" x="-10%" y="-10%" width="120%" height="120%"><feGaussianBlur stdDeviation="6"/></filter>
+      <linearGradient id="rule" x1="0" x2="1"><stop offset="0" stop-color="{BLUE}" stop-opacity="0"/><stop offset=".5" stop-color="{BLUE}"/><stop offset="1" stop-color="{BLUE}" stop-opacity="0"/></linearGradient>
     </defs>
-    <circle cx="450" cy="90" r="260" fill="url(#neb-blue)"/>
-    <g>{starfield(W, H, 110, 3, [(220, 30, 680, 130)])}</g>
-    <g clip-path="url(#above)">{rings}</g>
-    <circle cx="450" cy="1072" r="900" fill="none" stroke="#6f9eff" stroke-width="18" opacity=".22" filter="url(#soft)"/>
-    <circle cx="450" cy="1072" r="900" fill="url(#planet)" stroke="#8fb4ff" stroke-width="1.4" stroke-opacity=".7"/>
-    {live_dot(450, 172, BLUE)}
-    <g class="rise" style="animation-delay:.2s">
-      <text x="450" y="54" text-anchor="middle" class="mono" font-size="10" letter-spacing="6" fill="{LABEL}">GROUND CONTROL</text>
+    <circle cx="250" cy="170" r="260" fill="url(#neb-blue)"/>
+    <circle cx="680" cy="0" r="240" fill="url(#neb-rose)"/>
+    <g class="rise" style="animation-delay:.1s">
+      <text x="442" y="50" text-anchor="middle" class="mono" font-size="10" letter-spacing="5" fill="{LABEL}">AVAILABLE</text>
       <text x="450" y="92" text-anchor="middle" class="sans" font-size="26" font-weight="800" fill="{INK}">Looking for a summer internship.</text>
       <text x="450" y="120" text-anchor="middle" class="sans" font-size="15" font-style="italic" fill="{INK2}">Bring a hard problem.</text>
-    </g>"""
-    write("footer.svg", svg(W, H, "Ground control",
-                            "Ground control. Looking for a summer internship. Bring a hard problem.", css, body))
+    </g>
+    {live_dot(502, 46, TEAL, 0.4)}
+    <rect class="underline" x="330" y="140" width="240" height="1.5" fill="url(#rule)"/>"""
+    write("footer.svg", svg(W, H, "Available",
+                            "Looking for a summer internship. Bring a hard problem.", css, body))
 
 
 if __name__ == "__main__":
