@@ -28,14 +28,13 @@ Two adjacent publishers on a route is the first point where ASPA can judge anyth
 <p align="center">
   Live: <a href="https://spotlight-five-puce.vercel.app/">Spotlight</a> · <a href="https://wanderlust-iota-nine.vercel.app">WanderLust</a>
   <br />
-  Also: <a href="https://github.com/TanishkaJ26/dsa-cpp">dsa-cpp</a>. Working through Striver A2Z in C++.
 </p>
 
 <!-- AUTO-PROJECTS:START -->
 <!-- AUTO-PROJECTS:END -->
 
 <p align="center">
-  <img src="./assets/footer.svg" width="100%" alt="Open to work this summer. Hand me the problem nobody wants to measure." />
+  <img src="./assets/footer.svg" width="100%" alt="Open to work." />
 </p>
 
 <p align="center">
